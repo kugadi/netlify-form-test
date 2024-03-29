@@ -6,48 +6,55 @@
     <title>Hello World</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="desktop contact_cont" >
-                <h2 style="text-align: center; font-size: 40px;">Let us convince you in just 7 minutes
-                </h2>
-                <form class="my-form" name="desktop-demo-request-5" netlify-honeypot="bot-field" style="text-align: center;" method="POST" data-netlify="true" action="/thank-you-request-demo">
-                <div class="my-form_white">
-                    <p class="hidden">
-                    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-                    </p> 
-                    <input type="text" name="name" placeholder="Name" class="kugadi-input" required/> 
-                    <input type="email" name="email" placeholder="Email Address" class="kugadi-input" required/> 
-                    <input type="text" name="company" placeholder="Company" class="kugadi-input" required/> 
-                    <textarea name="message" rows="8" placeholder="Message" class="kugadi-input"></textarea> 
-                </div>
-                <div class="form_btn">
-                    <button type="submit" class="green-button">REQUEST A DEMO</button>
-                </div>
-                </form> 
-            </div>
-
-            <div class="mobile contact_cont"> 
-                <h2 style="text-align: center; font-size: 40px;">Let us convince you in just 7 minutes
-                </h2>
-                <form class="my-form" name="mobile-demo-request-5" netlify-honeypot="bot-field" method="POST" data-netlify="true" action="/thank-you-request-demo">
+    <section class="work features contact">
+        <div class="container">
+          <div class="row">
+              <div class="desktop contact_cont" >
+                  <h2 style="text-align: center; font-size: 40px;">Let us convince you in just 7 minutes
+                  </h2>
+                  <form class="my-form" name="desktop-demo-request-6" netlify-honeypot="bot-field" style="text-align: center;" method="POST" data-netlify="true" action="/thank-you-request-demo">
                   <div class="my-form_white">
-                    <p class="hidden">
+                      <p class="hidden">
                       <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-                    </p> 
-                    <input type="email" name="email" placeholder="Email Address" class="kugadi-input" required/>
-                   </div>
-        
-                    <div class="form_btn">
+                      </p> 
+                      <input type="text" name="name" placeholder="Name" class="kugadi-input" required/> 
+                      <input type="email" name="email" placeholder="Email Address" class="kugadi-input" required/> 
+                      <input type="text" name="company" placeholder="Company" class="kugadi-input" required/> 
+                      <textarea name="message" rows="8" placeholder="Message" class="kugadi-input"></textarea> 
+                  </div>
+                  <div class="form_btn">
                       <button type="submit" class="green-button">REQUEST A DEMO</button>
-                    </div>
-                </form>
-                <div class="form_btn">
-                  <button type="button" class="green-button" onclick="window.location.href='tel:8882365031';">CLICK TO CALL</button>
-                </div> 
-            </div>
+                  </div>
+                  </form> 
+              </div>
+      
+              <div class="mobile contact_cont"> 
+                  <h2 style="text-align: center; font-size: 40px;">Let us convince you in just 7 minutes
+                  </h2>
+                  <form class="my-form" name="mobile-demo-request-6" netlify-honeypot="bot-field" method="POST" data-netlify="true" action="/thank-you-request-demo">
+                    <div class="my-form_white">
+                      <p class="hidden">
+                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                      </p> 
+                      <input type="email" name="email" placeholder="Email Address" class="kugadi-input" required/>
+                     </div>
+          
+                      <div class="form_btn">
+                        <button type="submit" class="green-button">REQUEST A DEMO</button>
+                      </div>
+                  </form>
+                  <div class="form_btn">
+                    <button type="button" class="green-button" onclick="window.location.href='tel:8882365031';">CLICK TO CALL</button>
+                  </div> 
+              </div>
+          </div>
         </div>
-    </div>
+        <picture >
+          <source class="lazy" srcset="{{ "img/webp/features.webp" | absURL }}" type="image/webp">
+          <source class="lazy" srcset="{{ "img/features.jpg" | absURL }}" type="image/png">
+          <img class="general_img lazy" src="{{ "img/features.jpg" | absURL }}" alt="teaser_bg">
+        </picture>
+      </section>
 </body>
 </html>
 
