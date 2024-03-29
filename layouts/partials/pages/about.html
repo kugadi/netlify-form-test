@@ -1,0 +1,64 @@
+
+<sections class="teaser">
+    <div class="container">
+      <div class="row">
+        <div class="teaser_cont">
+          <div class="teaser_cont_center">
+              <h1 class="title">{{ .Params.teaser_title }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <picture >
+      <source srcset="{{ .Params.teaser_bg_webp | absURL }}" type="image/webp">
+      <source srcset="{{ .Params.teaser_bg | absURL }}" type="image/png">
+      <img class="general_img" width="{{ .Params.teaser_bg_w }}" height="{{ .Params.teaser_bg_h }}" src="{{ .Params.teaser_bg | absURL }}" alt="teaser_bg">
+    </picture>
+    <img class="img-try lazy" width="56" height="56" data-src="{{ "svg/try.svg" | absURL }}" data-srcset="{{ "svg/try.svg" | absURL }}" alt="bg"/>
+  </sections>
+
+  <section class="product">
+    <picture >
+      <source class="lazy" srcset="{{ "img/webp/features.webp" | absURL }}" type="image/webp">
+      <source class="lazy" srcset="{{ "img/features.jpg" | absURL }}" type="image/png">
+      <img class="general_img lazy" width="1552" height="1670" src="{{ "img/features.jpg" | absURL }}" alt="teaser_bg">
+    </picture>
+    <div class="container">
+      <div class="row">
+        <div class="about_cont">
+            <picture >
+              <source class="lazy" data-srcset="{{ .Params.about_img_webp | absURL }}" type="image/webp">
+              <source class="lazy"  data-srcset="{{ .Params.about_img | absURL }}" type="image/png">
+              <img class="about_cont_img lazy" width="{{ .Params.about_img_w }}" height="{{ .Params.about_img_h }}" data-src="{{ .Params.about_img | absURL }}" alt="about_img">
+            </picture>
+            <div class="about_cont_column">
+                <div class="post_content">
+                    {{ .Params.about_text | markdownify }}
+                </div>
+                <div class="comment_cont">
+                    {{ range .Params.comments }}
+                      <div class="comment_cont_items">
+                          <div class="comment_cont_items_text">
+                              <p>{{ .text }}</p>
+                          </div>
+                          <div class="comment_cont_row">
+                            <div class="comment_cont_column">
+                              <h6>{{ .name }}</h6>
+                              <p>{{ .job }}</p>
+                            </div>
+                            <picture >
+                              <source class="lazy" data-srcset="{{ .img_webp | absURL }}" type="image/webp">
+                              <source class="lazy"  data-srcset="{{ .img | absURL }}" type="image/png">
+                              <img class="lazy" width="{{ .img_w }}" height="{{ .img_h }}" data-src="{{ .img | absURL }}" alt="partners-img">
+                            </picture>
+                          </div>
+                      </div>
+                      <p class="comment_paragraph" >{{ .paragraph }}</p>
+                    {{ end }}
+                  </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </section>

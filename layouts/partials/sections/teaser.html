@@ -1,0 +1,28 @@
+<sections class="teaser {{ if .Params.teaser_mobail_none }} mobail-height {{ end }}">
+  <div class="container">
+    <div class="row">
+      <div class="teaser_cont">
+        <div class="teaser_cont_left">
+            <h1 class="title">{{ .Params.teaser_title }}</h1>
+            <p class="general_paragraph {{ if not .Params.teaser_button_text }} obv {{ end }}">{{ .Params.teaser_paragraph }}</p>
+            {{ if .Params.teaser_button_text }}
+            <a class="general-button" href="{{ .Params.teaser_button_link }}">{{ .Params.teaser_button_text }}</a>
+            {{ end }}
+        </div>
+        <div class="teaser_cont_right {{ if .Params.teaser_mobail_none }} mobail-none {{ end }}">
+          <picture >
+            <source srcset="{{ .Params.teaser_img_webp | absURL }}" type="image/webp">
+            <source srcset="{{ .Params.Teaser_img | absURL }}" type="image/png">
+            <img width="534" height="469" class="teaser_cont_right_img" src="{{ .Params.Teaser_img | absURL }}" alt="Teaser_img">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+  <picture >
+    <source srcset="{{ .Params.teaser_bg_webp | absURL }}" type="image/webp">
+    <source srcset="{{ .Params.teaser_bg | absURL }}" type="image/png">
+    <img width="1440" height="523" class="general_img" src="{{ .Params.teaser_bg | absURL }}" alt="teaser_bg">
+  </picture>
+  <img class="img-try" src="{{ "svg/try.svg" | absURL }}" data-srcset="{{ "svg/try.svg" | absURL }}" alt="bg"/>
+</sections>

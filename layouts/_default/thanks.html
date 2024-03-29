@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+  {{ partial "head.html" . }}
+  <body>
+  {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+  <sections class="teaser teaser3">
+    <div class="container">
+      <div class="row">
+        <div class="teaser_cont">
+          <div class="teaser_cont_center">
+              <h1 class="title">{{ .Params.teaser_title }}</h1> 
+              <p class="general-paragraph">{{ .Params.teaser_text }}</p>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <img class="general_img lazy" data-src="{{ .Params.teaser_bg | absURL }}" data-srcset="{{ .Params.teaser_bg | absURL }}" alt="bg"/>
+    <img class="img-try lazy" data-src="{{ "svg/try.svg" | absURL }}" data-srcset="{{ "svg/try.svg" | absURL }}" alt="bg"/>
+  </sections>
+
+  <section class="product">
+    <div class="container">
+      <div class="row">
+        <div class="faq_cont">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/kugadi-demo/demo" style="min-width:320px;height:730px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+           
+        
+          <p class="bottom_text">You can also find a lot more on our main website by clicking <a href="{{ "/" }}">here</a></p>
+        
+        </div>
+      </div>
+    </div>
+    <img class="general_img lazy" data-src="{{ "img/webp/features.webp" | absURL }}" data-srcset="{{ "img/webp/features.webp" | absURL }}" alt="bg"/>
+  </section>
+
+  {{ block "page" . }}
+  {{ end }}
+  {{ partial "footer.html" . }}
+  </body>
+</html>
+

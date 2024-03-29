@@ -1,0 +1,47 @@
+<header class="header {{ if .Params.header_color }} blue {{ end}} {{ if .Params.header_none }} padding {{ end }}">
+  <div class="container">
+    <div class="row">
+    <div class="header_cont">
+      {{ if isset .Site.Params "logo" }}
+      <a class="header_cont_logo" href="{{ .Site.BaseURL }}" >
+        <img class="avatar-img" src="{{ .Site.Params.logo | absURL }}" width="{{ .Site.Params.logo_w }}" height="{{ .Site.Params.logo_h }}" alt="{{ .Site.Title }}" />
+      </a>
+      {{ end }}
+      {{ $url := .RelPermalink }}
+      <div class="header_cont_nav {{ if .Params.header_none }} none {{ end }}">
+        <ul class="header_cont_nav_list">
+          {{ range .Site.Menus.main.ByWeight }}
+          <li class="header_cont_nav_list_items {{ if eq $url .URL }}
+          active
+          {{ end }}
+          {{ range .Children }}
+          {{ if eq $url .URL }}
+          active
+          {{ end }}
+          {{ end }}
+          ">
+            <a class="header_cont_nav_list_items_link"
+              href="{{ if.URL }}{{ .URL | relLangURL }}{{ end }}">{{ .Name }}
+            </a>
+            {{ if .HasChildren }}
+            <div class="header_cont_nav_list_items_children">
+            {{ range .Children }}
+              <a class="header_cont_nav_list_items_children_link_children {{ if eq $url .URL }}
+              active
+              {{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+            {{ end }}
+            </div>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="hamburger hamburger--slider js-hamburger {{ if .Params.header_none }} none {{ end }}">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>

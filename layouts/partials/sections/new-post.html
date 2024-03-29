@@ -1,0 +1,29 @@
+<div class="product">
+  <div class="container">
+     <h2 class="product_title-new">New Kugadi Posts</h2>
+    <div class="row">
+      <div class="product_cont">
+        {{ range first 3 (where (where .Site.Pages "Type" "blog") "IsPage" true) }} 
+        <div class="product_cont_list">
+            <div class="product_cont_list_img">
+              <img class="lazy" data-src="{{ .Params.small_img | absURL }}" data-srcset="{{ .Params.small_img | absURL }}" alt="blog-img" />
+            </div> 
+            <div class="product_cont_list_column">
+              <a href="{{ .Permalink }}" class="product-title">{{ .Title }}</a>
+              {{ $taxo := "tags" }}  
+              <div class="tags">
+                  {{ range .Param $taxo }}
+                      {{ $name := . }}
+                      {{ with $.Site.GetPage (printf "/%s/%s" $taxo ($name | urlize)) }}
+                          <span>{{ $name }} | </span>
+                      {{ end }}
+                  {{ end }}<span>{{ .Date.Format "Jan 2, 2006" }}</span>
+              </div>
+              <p class="product_cont_list_column_sub">{{ .Params.paragraph }}</p>
+            </div> 
+        </div>
+        {{ end }} 
+      </div>
+    </div>
+  </div> 
+</div>

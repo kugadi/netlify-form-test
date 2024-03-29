@@ -1,0 +1,43 @@
+{{  partial "sections/schema-kugadi-organization-faq.html" }}
+
+<sections class="teaser teaser3">
+    <div class="container">
+      <div class="row">
+        <div class="teaser_cont">
+          <div class="teaser_cont_center">
+              <h1 class="title">{{ .Params.teaser_title }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <picture >
+      <source srcset="{{ .Params.teaser_bg_webp | absURL }}" type="image/webp">
+      <source srcset="{{ .Params.teaser_bg | absURL }}" type="image/png">
+      <img class="general_img" width="{{ .Params.img_w }}" height="{{ .Params.img_h }}" src="{{ .Params.teaser_bg | absURL }}" alt="teaser_bg">
+    </picture>
+    <img class="img-try lazy"  width="56" height="56" data-src="{{ "svg/try.svg" | absURL }}" data-srcset="{{ "svg/try.svg" | absURL }}" alt="bg"/>
+  </sections>
+
+  <section class="product">
+    <div class="container">
+      <div class="row">
+        <div class="faq_cont">
+            {{ range .Params.faq }}
+                <div class="faq_item">
+                    <h4 class="faq_item_title">{{ .title }}
+                      <img class="faq_item_img lazy" data-src="{{ "svg/arrow.svg" | absURL }}" data-srcset="{{ "svg/arrow.svg" | absURL }}" alt="arrow"/></h4>
+                    <div class="faq_item_content post_content">
+                        {{ .answer | markdownify }}
+                    </div>
+                </div>
+            {{ end }}
+
+        </div>
+      </div>
+    </div>
+    <picture >
+      <source class="lazy" srcset="{{ "img/webp/features.webp" | absURL }}" type="image/webp">
+      <source class="lazy" srcset="{{ "img/features.jpg" | absURL }}" type="image/png">
+      <img class="general_img lazy" width="1439" height="1007" src="{{ "img/features.jpg" | absURL }}" alt="teaser_bg">
+    </picture>
+  </section>

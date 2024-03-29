@@ -1,0 +1,30 @@
+<sections class="video">
+  <div class="container">
+    <p class="general_paragraph">{{ .Params.video_paragraph }}</p>
+    <div class="row">
+      <div class="video_cont" data-video="{{ .Params.video_video }}" >
+        <picture >
+          <source class="lazy" data-srcset="{{ .Params.video_img_webp | absURL }}" type="image/webp">
+          <source class="lazy"  data-srcset="{{ .Params.video_img | absURL }}" type="image/png">
+          <img width="1122" height="621" class="video_cont_img lazy" data-src="{{ .Params.video_img | absURL }}" alt="video_img">
+        </picture>
+        <a class="video_cont_play">
+          <picture >
+            <source class="lazy" data-srcset="{{ "img/webp/play.webp" | absURL }}" type="image/webp">
+            <source class="lazy"  data-srcset="{{ "img/play.png" | absURL }}" type="image/png">
+            <img width="87" height="87" class="lazy" data-src="{{ "img/play.png" | absURL }}" alt="play">
+          </picture>
+         </a>
+      </div>
+      <div class="video_modal">
+          <span class="video_modal_close">&times;</span>
+          <div class="video_modal_cont"></div>
+      </div>
+    </div>
+  </div>
+  <picture >
+    <source class="lazy" data-srcset="{{ .Params.video_bg_webp | absURL }}" type="image/webp">
+    <source class="lazy"  data-srcset="{{ .Params.video_bg | absURL }}" type="image/png">
+    <img width="1440" height="892" class="general_img lazy" data-src="{{ .Params.video_bg | absURL }}" alt="video_bg">
+  </picture>
+</sections>

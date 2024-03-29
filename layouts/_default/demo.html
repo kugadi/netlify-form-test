@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+  {{ partial "head.html" . }}
+  <body>
+  {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+  {{  partial "sections/teaser.html" . }}
+  <div class="demo"> 
+    <picture >
+      <source class="lazy" srcset="{{ "img/webp/features.webp" | absURL }}" type="image/webp">
+      <source class="lazy" srcset="{{ "img/features.jpg" | absURL }}" type="image/png">
+      <img class="general_img lazy" src="{{ "img/features.jpg" | absURL }}" alt="teaser_bg">
+    </picture>
+    {{ .Content }}
+    {{ partial "sections/features.html" . }} 
+    {{  partial "sections/comments.html" . }}
+  </div>
+  {{ partial "footer.html" . }}
+  </body>
+</html>
+

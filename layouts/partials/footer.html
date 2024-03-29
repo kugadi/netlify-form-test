@@ -1,0 +1,176 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer_cont">
+        <a class="footer_cont_logo" href="{{ .Site.Params.url }}">
+          <img class="footer_cont_logo_img lazy" width="63" height="54" data-src="{{ "svg/logo.svg" | absURL }}" data-srcset="{{ "svg/logo.svg" | absURL }}" alt="footer-logo" />
+        </a>
+        <div class="footer_cont_nav">
+          <div class="footer_cont_nav_list">
+            <a class="footer_cont_menu_nav_list_items" href="#">Head Office</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">1317 Edgewater Dr #3260</a>
+            <a  class="footer_cont_menu_nav_list_items" href="#">Orlando</a>
+            <a  class="footer_cont_menu_nav_list_items" href="#">FL 32804</a>
+          </div>
+          <div class="footer_cont_nav_list">
+            <a class="footer_cont_menu_nav_list_items" href="#">West Coast Office</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">39488 Stevenson Place, Suite 100</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">Fremont</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">CA 94539</a>
+          </div>
+          <div class="footer_cont_nav_list">
+            <a href="tel:8882365031" class="footer_cont_menu_nav_list_items">Call us on <span>(888) 236-5031</span></a>
+            <a href="mailto:info@kugadi.com" class="footer_cont_menu_nav_list_items">Email us at <span>info@kugadi.com</span></a>
+
+            <div class="footer_soz">
+              <a class="footer_soz_item" href="https://www.linkedin.com/company/kugadi">
+                <img class="footer_soz_item__img lazy" width="20" height="20" data-srcset="{{ "svg/linkedin.svg" | absURL }}" data-src="{{ "svg/linkedin.svg" | absURL }}" alt="footer-logo" />
+              </a>
+              <a class="footer_soz_item" href="https://twitter.com/kugadiinc">
+                <img class="footer_soz_item__img lazy"  width="20" height="17" data-srcset="{{ "svg/twitter.svg" | absURL }}" data-src="{{ "svg/twitter.svg" | absURL }}" alt="footer-logo" />
+              </a>
+              <a class="footer_soz_item" href="https://www.facebook.com/kugadi">
+                <img class="footer_soz_item__img lazy" width="20" height="20" data-srcset="{{ "svg/facebook.svg" | absURL }}" data-src="{{ "svg/facebook.svg" | absURL }}" alt="footer-logo" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="footer_bottom_cont">
+          <p>&copy; {{ now.Format "2006"}}, Kugadi Inc. All rights reserved </p>
+          <a href="/privacy-policy/">Privacy Policy
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+ <picture>
+    <source class="lazy" data-srcset="{{ "img/webp/footer.webp" | absURL }}" type="image/webp">
+    <source class="lazy"  data-srcset="{{ "img/footer.jpg" | absURL }}" type="image/png">
+    <img class="general_img lazy" width="1440" height="316" data-src="{{ "img/footer.jpg" | absURL }}" alt="bg">
+  </picture>
+</footer>
+
+
+{{ $sass := resources.Get "sass/main.scss" }}
+{{ $style := $sass | resources.ToCSS }}
+<script>
+  var lazyImages = [].slice.call(document.querySelectorAll(".lazy"));
+ if ("IntersectionObserver" in window) {
+     let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+       entries.forEach(function(entry) {
+           if (entry.isIntersecting) {
+             let lazyImage = entry.target;
+             if(lazyImage.dataset.src !== undefined){
+              lazyImage.src = lazyImage.dataset.src;
+             }
+             if(lazyImage.dataset.srcset !== undefined){
+              lazyImage.srcset = lazyImage.dataset.srcset;
+             }
+             lazyImage.classList.remove("lazy");
+             lazyImageObserver.unobserve(lazyImage);
+           }
+       });
+     });
+
+     lazyImages.forEach(function(lazyImage) {
+         lazyImageObserver.observe(lazyImage);
+     });
+   } else {
+       console.log('img false')
+   }
+
+
+  function loadCSS(hf) {
+          let ms = document.createElement("link");
+          ms.rel = "stylesheet";
+          ms.href = hf;
+          document.getElementsByTagName("head")[0].appendChild(ms);
+  }
+  loadCSS("{{ $style.Permalink | absLangURL }}");
+</script>
+<script>
+  var scr = {
+      "scripts": [
+           {"src": "{{ "js/jquery-3.3.1.min.js" | absURL }}", "async": false},
+           {"src": "{{ "js/common.js" | absURL }} ", "async": false}
+      ]
+  };
+  !function (t, n, r) {
+      "use strict";
+      var c = function (t) {
+          if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;
+          for (var r = 0; r < t.length; r++) {
+              var c = n.createElement("script"), e = t[r];
+              c.src = e.src, c.async = e.async, n.body.appendChild(c)
+          }
+          return !0
+      };
+      t.addEventListener ? t.addEventListener("load", function () {
+          c(r.scripts);
+      }, !1) : t.attachEvent ? t.attachEvent("onload", function () {
+          c(r.scripts)
+      }) : t.onload = function () {
+          c(r.scripts)
+      }
+  }(window, document, scr);
+</script>
+
+<!--script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.intercomSettings = {
+        app_id: "c8rx7xsn"
+        // email: 'john.doe@example.com',
+        // created_at: 1234567890,
+        // name: 'John Doe',
+        // user_id: '9876'
+      };
+      var w = window;
+      var ic = w.Intercom;
+      if (typeof ic === "function") {
+          ic('reattach_activator');
+          ic('update', w.intercomSettings);
+      } else {
+          var d = document;
+          var i = function() {
+              i.c(arguments);
+          };
+          i.q = [];
+          i.c = function(args) {
+              i.q.push(args);
+          };
+          w.Intercom = i;
+          var l = function() {
+              var s = d.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = 'https://widget.intercom.io/widget/c8rx7xsn';
+              var x = d.getElementsByTagName('script')[0];
+              x.parentNode.insertBefore(s, x);
+          };
+          setTimeout(function (){l();},1000);
+        }
+    });
+</script-->
+
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="true"></script>
+<script>
+window.cookieconsent.initialise({
+"palette": {
+ "popup": {
+   "background": "#237afc"
+ },
+ "button": {
+   "background": "#fff",
+   "text": "#237afc"
+ }
+},
+"position": "top",
+"static": true
+});
+</script>

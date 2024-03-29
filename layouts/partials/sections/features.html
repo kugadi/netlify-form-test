@@ -1,0 +1,33 @@
+<sections class="work features">
+  <div class="container">
+    <div class="row">
+        {{ if .Params.work_feature_title }}<h2 class="work_features_title"> {{ .Params.work_feature_title }}</h2>{{ end }}
+        <div class="work_features"> 
+            {{ range .Params.work_feature }}
+              <div class="work_features_items">
+                <picture >
+                  <source class="lazy" data-srcset="{{ .img_webp | absURL }}" type="image/webp">
+                  <source class="lazy"  data-srcset="{{ .img | absURL }}" type="image/png">
+                  <img class="work_features_items_img  lazy" data-src="{{ .img | absURL }}" alt="work_bg">
+                </picture>
+                <picture >
+                  <source class="lazy" data-srcset="{{ .bg_webp | absURL }}" type="image/webp">
+                  <source class="lazy"  data-srcset="{{ .bg | absURL }}" type="image/png">
+                  <img class="work_features_items_img-abs  lazy" data-src="{{ .bg | absURL }}" alt="work_bg">
+                </picture> <img class="work_features_items_img-abs lazy"  data-src="{{ .bg | absURL }}" data-srcset="{{ .bg | absURL }}" alt="about-img"/>
+                <div class="work_features_items_text">
+                  {{ .cotext | markdownify }} 
+                </div>
+              </div>
+            {{ end }}
+        </div>
+    </div>
+  </div>
+  {{ if  .Params.work_bg }}
+  <picture >
+    <source class="lazy" data-srcset="{{ .Params.work_bg_webp | absURL }}" type="image/webp">
+    <source class="lazy"  data-srcset="{{ .Params.work_bg | absURL }}" type="image/png">
+    <img class="general_img lazy" data-src="{{ .Params.work_bg | absURL }}" alt="work_bg">
+  </picture>
+  {{ end }}
+</sections>

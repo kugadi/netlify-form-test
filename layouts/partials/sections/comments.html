@@ -1,0 +1,54 @@
+<sections class="comments">
+  <div class="container">
+    <div class="row">
+      <!-- <div class="comments_conts">
+        {{ range .Params.comments }}
+          <div class="comments_conts_items">
+            <img  src="{{ .img | absURL }}" alt="block-img"/>
+              <div class="comments_conts_items_text">
+                  <p>{{ .text }}</p>
+                  <h6>{{ .sub_text }}</h6>
+              </div>
+          </div>
+        {{ end }}
+      </div>  -->
+      <h2 class="comment_title">{{ .Params.comments_title }}</h2>
+      <div class="comment_cont">
+        {{ range .Params.comments }}
+          <div class="comment_cont_items">
+              <div class="comment_cont_items_text">
+                  <p>{{ .text }}</p>
+              </div>
+              <div class="comment_cont_row">
+                <div class="comment_cont_column">
+                  <h6>{{ .name }}</h6>
+                  <p>{{ .job }}</p>
+                </div>
+                <picture >
+                  <source class="lazy" data-srcset="{{ .img_webp | absURL }}" type="image/webp">
+                  <source class="lazy"  data-srcset="{{ .img | absURL }}" type="image/png">
+                  <img class="lazy" width="{{ .img_w }}" height="{{ .img_h }}" data-src="{{ .img | absURL }}" alt="peopel">
+                </picture>
+              </div>
+          </div>
+        {{ end }}
+      </div>
+      <div class="comments_partner">
+        {{ range .Params.comments_partners }}
+          <picture >
+            <source class="lazy" data-srcset="{{ .img_webp | absURL }}" type="image/webp">
+            <source class="lazy"  data-srcset="{{ .img | absURL }}" type="image/png">
+            <img class="lazy" width="{{ .img_w }}" height="{{ .img_h }}" data-src="{{ .img | absURL }}" alt="partners-img">
+          </picture>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ if  .Params.comments_bg }}
+    <picture >
+      <source class="lazy" data-srcset="{{ .Params.comments_bg_webp | absURL }}" type="image/webp">
+      <source class="lazy"  data-srcset="{{ .Params.comments_bg | absURL }}" type="image/png">
+      <img width="1440" height="1170" class="general_img lazy" data-src="{{ .Params.comments_bg | absURL }}" alt="comments_bg">
+    </picture>
+  {{ end }}
+</sections>

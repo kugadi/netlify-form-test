@@ -1,0 +1,23 @@
+<div class="post">
+  <picture >
+    <source class="lazy" data-srcset="{{ .Params.img_webp | absURL }}" type="image/webp">
+    <source class="lazy"  data-srcset="{{ .Params.img | absURL }}" type="image/png">
+    <img class="post_img lazy" data-src="{{ .Params.img | absURL }}" alt="peopel">
+  </picture>
+</div>
+<section class="content privacy">
+  <picture >
+    <source class="lazy" srcset="{{ "img/webp/features.webp" | absURL }}" type="image/webp">
+    <source class="lazy" srcset="{{ "img/features.jpg" | absURL }}" type="image/png">
+    <img class="general_img lazy" src="{{ "img/features.jpg" | absURL }}" alt="teaser_bg">
+  </picture>
+  <div class="container">
+    <div class="content_cont">
+      <div class="content_cont_bottom" id="element-print">
+        <div class="post_content">
+            {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

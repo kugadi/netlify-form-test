@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Request Demo</title>
+  <meta property="og:title" content="Request Demo" />
+  <meta name="twitter:title" content="Request Demo" />
+  <meta name="author" content=""/>
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://localhost:1313/request-demo/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="My New Hugo Site" />
+
+
+  <link rel="canonical" href="http://localhost:1313/request-demo/" />
+  <link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title="My New Hugo Site">
+<style>
+ html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+  transition: 0.3s all;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 15px;
+  box-sizing: border-box; }
+
+.container-small {
+  max-width: 990px;
+  padding: 0 15px;
+  margin: 0 auto; }
+
+.row {
+  margin: 0 -15px; }
+  @media (max-width: 1200px) {
+    .row {
+      margin: 0; } }
+.general-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  font-family: "Ubuntu", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2D6BC7;
+  cursor: pointer;
+  transition: 0.3s all;
+  border-radius: 70px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  text-decoration: none; }
+  .general-button:hover {
+    border: 1px solid #2D6BC7;
+    color: #ffffff;
+    background-color: #2D6BC7;
+    box-shadow: 0 4px 2px -2px #2D6BC7; }
+
+.title {
+  font-family: "Ubuntu", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 43px;
+  line-height: 49px;
+  color: #ffffff;
+  text-shadow: 0px 3px 4px rgba(75, 88, 202, 0.52);
+  margin: 0; }
+  @media (max-width: 768px) {
+    .title {
+      font-size: 32px; } }
+.general_paragraph {
+  font-family: "Ubuntu", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+  text-shadow: 0px 3px 4px rgba(49, 62, 180, 0.46);
+  margin: 0; }
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  padding: 0 0;
+  z-index: 99;
+  transition: 0.3s all;
+  border-bottom: 1px solid rgba(6, 74, 130, 0.09); }
+  .header.active {
+    box-shadow: 0 4px 2px -2px #ffffff;
+    background: linear-gradient(180deg, #71AADA 0%, #689ECC 26.96%, #6499D0 61.76%, #5C8ED7 85.47%); }
+    .header.active .header_cont_nav_list_items {
+      padding: 25px 0; }
+      @media (max-width: 768px) {
+        .header.active .header_cont_nav_list_items {
+          padding: 0; } }
+    .header.active .header_cont_nav_list_items_children {
+      top: 70px; }
+      @media (max-width: 768px) {
+        .header.active .header_cont_nav_list_items_children {
+          top: 0; } }
+    @media (max-width: 768px) {
+      .header.active .header_cont {
+        padding: 15px 0; } }
+    @media (max-width: 768px) {
+      .header.active .header_cont_nav {
+        top: 90px; } }
+  .header_cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s all; }
+    @media (max-width: 768px) {
+      .header_cont {
+        padding: 25px 0; } }
+    .header_cont_logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-decoration: none; }
+      .header_cont_logo img {
+        margin-right: 10px; }
+    .header_cont_nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      transition: 0.3s all;
+      box-sizing: border-box; }
+      .header_cont_nav.active {
+        transition: 0.3s all; }
+        @media (max-width: 768px) {
+          .header_cont_nav.active {
+            transform: translate(0, 0); } }
+      @media (max-width: 768px) {
+        .header_cont_nav {
+          position: absolute;
+          top: 110px;
+          right: 0;
+          min-width: 250px;
+          background-color: #ffffff;
+          border-radius: 6px;
+          flex-direction: column;
+          box-shadow: 0px 9px 12px rgba(118, 169, 213, 0.4);
+          transform: translate(100%, 0); } }
+      @media (max-width: 480px) {
+        .header_cont_nav {
+          width: 100%; } }
+      .header_cont_nav_list {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0; }
+        @media (max-width: 768px) {
+          .header_cont_nav_list {
+            flex-direction: column;
+            width: 100%; } }
+        .header_cont_nav_list_items {
+          position: relative;
+          text-decoration: none;
+          list-style: none;
+          padding: 45px 0;
+          transition: 0.3s all;
+          margin-right: 30px;
+          transition: 0.3s all;
+          cursor: pointer; }
+          .header_cont_nav_list_items:before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 4px;
+            transition: 0.3s all;
+            z-index: 11; }
+          .header_cont_nav_list_items.active:before, .header_cont_nav_list_items:hover:before {
+            width: 100%;
+            background-color: #ffffff; }
+            @media (max-width: 768px) {
+              .header_cont_nav_list_items.active:before, .header_cont_nav_list_items:hover:before {
+                background-color: #064A82; } }
+          @media (max-width: 768px) {
+            .header_cont_nav_list_items {
+              color: #373737;
+              border-bottom: 1px solid rgba(34, 78, 116, 0.4);
+              margin-right: 0;
+              padding: 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start; } }
+          .header_cont_nav_list_items:last-child {
+            margin-right: 0; }
+          .header_cont_nav_list_items_link {
+            font-family: "Ubuntu", sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 18px;
+            letter-spacing: 0.02em;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s all;
+            text-shadow: 0px 2px 4px rgba(81, 90, 169, 0.6); }
+            @media (max-width: 768px) {
+              .header_cont_nav_list_items_link {
+                color: #373737;
+                text-shadow: none;
+                padding: 18px 30px;
+                text-align: left; } }
+          .header_cont_nav_list_items:hover > .header_cont_nav_list_items_children {
+            display: flex; }
+          @media (max-width: 768px) {
+            .header_cont_nav_list_items.active .header_cont_nav_list_items_children {
+              display: flex; } }
+          .header_cont_nav_list_items_children {
+            position: absolute;
+            top: 108px;
+            display: none;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            border: 1px solid #eaedf2;
+            box-sizing: border-box;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            width: 255px;
+            left: 0%;
+            transform: translate(0%, 0%);
+            flex-direction: column;
+            transition: 0.3s all; }
+            @media (max-width: 768px) {
+              .header_cont_nav_list_items_children {
+                display: none;
+                position: relative;
+                opacity: 1;
+                transform: translate(0%, 0%);
+                top: 0;
+                left: 0;
+                width: auto; } }
+            .header_cont_nav_list_items_children_link_children {
+              text-align: left;
+              font-family: "Ubuntu", sans-serif;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: 16px;
+              color: #373737;
+              cursor: pointer;
+              transition: 0.3s all;
+              text-decoration: none;
+              margin-bottom: 0;
+              padding: 18px 30px;
+              border-bottom: 1px solid rgba(118, 169, 213, 0.4); }
+              .header_cont_nav_list_items_children_link_children:hover, .header_cont_nav_list_items_children_link_children.active {
+                color: #064A82;
+                opacity: 1; }
+              @media (max-width: 768px) {
+                .header_cont_nav_list_items_children_link_children {
+                  padding: 10px 30px 10px 35px;
+                  border: none; } }
+            .header_cont_nav_list_items_children_link_children:last-child {
+              margin-bottom: 0;
+              border-bottom: none; }
+          .header_cont_nav_list_items:hover > .header_cont_nav_list_items_link {
+            opacity: 1; }
+    .header_cont .general-button {
+      font-size: 16px;
+      line-height: 150%;
+      min-width: 185px;
+      padding: 12px 15px;
+      border: transparent; }
+      @media (max-width: 768px) {
+        .header_cont .general-button {
+          margin-top: 10px; } }
+      @media (max-width: 480px) {
+        .header_cont .general-button {
+          width: 100%; } }
+.hamburger {
+  padding: 15px 15px;
+  display: none;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; }
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; } }
+.hamburger:hover {
+  opacity: 0.7; }
+
+.hamburger.is-active:hover {
+  opacity: 0.7; }
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #ffffff; }
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease; }
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: '';
+  display: block; }
+
+.hamburger-inner::before {
+  top: -10px; }
+
+.hamburger-inner::after {
+  bottom: -10px; }
+
+.hamburger--slider .hamburger-inner {
+  top: 2px; }
+
+.hamburger--slider .hamburger-inner::before {
+  top: 10px;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.15s; }
+
+.hamburger--slider .hamburger-inner::after {
+  top: 20px; }
+
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+  background-color: #064A82; }
+
+.hamburger--slider.is-active .hamburger-inner::before {
+  transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+  opacity: 0;
+  background-color: #064A82; }
+
+.hamburger--slider.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(-90deg);
+  background-color: #064A82; }
+
+.hamburger--slider-r .hamburger-inner {
+  top: 2px; }
+
+.hamburger--slider-r .hamburger-inner::before {
+  top: 10px;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.15s; }
+
+.hamburger--slider-r .hamburger-inner::after {
+  top: 20px; }
+
+.hamburger--slider-r.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(-45deg); }
+
+.hamburger--slider-r.is-active .hamburger-inner::before {
+  transform: rotate(45deg) translate3d(5.71429px, -6px, 0);
+  opacity: 0; }
+
+.hamburger--slider-r.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(90deg); }
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  padding-top: 50px;
+  overflow: hidden;
+  z-index: 4; }
+  .footer_cont {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 10px; }
+    @media (max-width: 768px) {
+      .footer_cont {
+        flex-direction: column; } }
+    .footer_cont:before {
+      content: ' ';
+      position: absolute;
+      left: -13px;
+      top: -51px;
+      width: 0;
+      height: 26px;
+      border-top: solid 42px #ffffff;
+      border-left: solid 42px transparent;
+      border-right: solid 42px transparent;
+      z-index: 9; }
+    .footer_cont_logo {
+      margin-top: 20px;
+      margin-right: 50px;
+      min-width: 65px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start; }
+      @media (max-width: 768px) {
+        .footer_cont_logo {
+          min-width: auto;
+          width: 65px; } }
+      .footer_cont_logo img {
+        width: 100%;
+        max-width: 100%; }
+    .footer_cont_nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      @media (max-width: 992px) {
+        .footer_cont_nav {
+          flex-wrap: wrap;
+          flex-grow: 1; } }
+    .footer_cont_nav_list {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 60px 0 0;
+      width: 100%;
+      min-width: 240px; }
+      @media (max-width: 992px) {
+        .footer_cont_nav_list {
+          max-width: 50%;
+          min-width: auto;
+          margin: 20px 0 0 0; } }
+      @media (max-width: 480px) {
+        .footer_cont_nav_list {
+          max-width: 100%; } }
+      .footer_cont_nav_list a {
+        font-family: "Ubuntu", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 152.4%;
+        letter-spacing: 0.01em;
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+        margin-bottom: 15px; }
+        .footer_cont_nav_list a span {
+          text-decoration: underline; }
+      .footer_cont_nav_list a:nth-child(1) {
+        margin-bottom: 50px; }
+      .footer_cont_nav_list:last-child {
+        margin: 20px 0 0 0; }
+        .footer_cont_nav_list:last-child a:nth-child(1) {
+          margin-bottom: 20px; }
+        .footer_cont_nav_list:last-child a {
+          font-weight: normal; }
+        .footer_cont_nav_list:last-child .footer_soz {
+          display: flex;
+          margin-top: auto; }
+
+.footer_soz {
+  display: flex;
+  flex-direction: row; }
+  .footer_soz_item {
+    margin-right: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s all; }
+    .footer_soz_item img {
+      transition: 0.3s all; }
+    .footer_soz_item:hover > img {
+      transform: scale(1.2); }
+
+.footer_bottom {
+  position: relative;
+  z-index: 9;
+  background: rgba(49, 57, 130, 0.5);
+  padding: 15px 0;
+  margin: 0; }
+  .footer_bottom p {
+    padding: 0;
+    margin: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    color: #ffffff; }
+
+.teaser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 525px;
+  padding: 8em 0;
+  box-sizing: border-box; }
+  .teaser_cont {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    @media (max-width: 992px) {
+      .teaser_cont {
+        flex-direction: column-reverse; } }
+    .teaser_cont_left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center; }
+      @media (max-width: 992px) {
+        .teaser_cont_left {
+          align-items: center;
+          margin-top: 30px; } }
+      .teaser_cont_left .title {
+        margin: 0 0 20px; }
+        @media (max-width: 992px) {
+          .teaser_cont_left .title {
+            text-align: center; } }
+      @media (max-width: 992px) {
+        .teaser_cont_left p {
+          text-align: center; } }
+      .teaser_cont_left .general_paragraph {
+        margin: 0 0 40px; }
+        .teaser_cont_left .general_paragraph.obv {
+          width: 100%;
+          max-width: 368px; }
+    .teaser_cont_right {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .teaser_cont_right img {
+        max-width: 100%; }
+  .teaser_cont_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; }
+    .teaser_cont_center .title {
+      text-align: center;
+      margin: 0 auto 30px; }
+    .teaser_cont_center .general_paragraph {
+      text-align: center;
+      margin: 0 auto 20px;
+      width: 100%;
+      max-width: 590px; }
+
+.img-try {
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+  transform: translate(0, 50%);
+  z-index: 5; }
+
+.general_img {
+   
+ }
+
+</style>
+
+<script type="application/javascript">
+  var doNotTrack = false;
+  if (!doNotTrack) {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-63183301-1', 'auto');
+
+    ga('send', 'pageview');
+  }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+</head>
+
+  <body>
+  <header class="header  blue  ">
+  <div class="container">
+    <div class="row">
+    <div class="header_cont">
+      
+      
+      <div class="header_cont_nav ">
+        <ul class="header_cont_nav_list">
+          
+        </ul>
+      </div>
+      <div class="hamburger hamburger--slider js-hamburger ">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>
+
+  
+    <section class="work features contact">
+  <div class="container">
+    <div class="row">
+        <div class="desktop contact_cont" >
+            <h2 style="text-align: center; font-size: 40px;">Let us convince you in just 7 minutes
+            </h2>
+            <form class="my-form" name="desktop-demo-request-42" netlify-honeypot="bot-field" style="text-align: center;" method="POST" data-netlify="true" action="/thank-you-request-demo">
+            <div class="my-form_white">
+                <p class="hidden">
+                <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                </p> 
+                <input type="text" name="name" placeholder="Name" class="kugadi-input" required/> 
+                <input type="email" name="email" placeholder="Email Address" class="kugadi-input" required/> 
+                <input type="text" name="company" placeholder="Company" class="kugadi-input" required/> 
+                <textarea name="message" rows="8" placeholder="Message" class="kugadi-input"></textarea> 
+            </div>
+            <div class="form_btn">
+                <button type="submit" class="green-button">REQUEST A DEMO</button>
+            </div>
+            </form> 
+        </div>
+
+        <div class="mobile contact_cont"> 
+            <h2 style="text-align: center; font-size: 40px;">Let us convince you in just 7 minutes
+            </h2>
+            <form class="my-form" name="mobile-demo-request-42" netlify-honeypot="bot-field" method="POST" data-netlify="true" action="/thank-you-request-demo">
+              <div class="my-form_white">
+                <p class="hidden">
+                  <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                </p> 
+                <input type="email" name="email" placeholder="Email Address" class="kugadi-input" required/>
+               </div>
+    
+                <div class="form_btn">
+                  <button type="submit" class="green-button">REQUEST A DEMO</button>
+                </div>
+            </form>
+            <div class="form_btn">
+              <button type="button" class="green-button" onclick="window.location.href='tel:8882365031';">CLICK TO CALL</button>
+            </div> 
+        </div>
+    </div>
+  </div>
+  <picture >
+    <source class="lazy" srcset="http://localhost:1313/img/webp/features.webp" type="image/webp">
+    <source class="lazy" srcset="http://localhost:1313/img/features.jpg" type="image/png">
+    <img class="general_img lazy" src="http://localhost:1313/img/features.jpg" alt="teaser_bg">
+  </picture>
+</section>
+  
+
+  
+  
+  <footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer_cont">
+        <a class="footer_cont_logo" href="">
+          <img class="footer_cont_logo_img lazy" width="63" height="54" data-src="http://localhost:1313/svg/logo.svg" data-srcset="http://localhost:1313/svg/logo.svg" alt="footer-logo" />
+        </a>
+        <div class="footer_cont_nav">
+          <div class="footer_cont_nav_list">
+            <a class="footer_cont_menu_nav_list_items" href="#">Head Office</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">1317 Edgewater Dr #3260</a>
+            <a  class="footer_cont_menu_nav_list_items" href="#">Orlando</a>
+            <a  class="footer_cont_menu_nav_list_items" href="#">FL 32804</a>
+          </div>
+          <div class="footer_cont_nav_list">
+            <a class="footer_cont_menu_nav_list_items" href="#">West Coast Office</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">39488 Stevenson Place, Suite 100</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">Fremont</a>
+            <a class="footer_cont_menu_nav_list_items" href="#">CA 94539</a>
+          </div>
+          <div class="footer_cont_nav_list">
+            <a href="tel:8882365031" class="footer_cont_menu_nav_list_items">Call us on <span>(888) 236-5031</span></a>
+            <a href="mailto:info@kugadi.com" class="footer_cont_menu_nav_list_items">Email us at <span>info@kugadi.com</span></a>
+
+            <div class="footer_soz">
+              <a class="footer_soz_item" href="https://www.linkedin.com/company/kugadi">
+                <img class="footer_soz_item__img lazy" width="20" height="20" data-srcset="http://localhost:1313/svg/linkedin.svg" data-src="http://localhost:1313/svg/linkedin.svg" alt="footer-logo" />
+              </a>
+              <a class="footer_soz_item" href="https://twitter.com/kugadiinc">
+                <img class="footer_soz_item__img lazy"  width="20" height="17" data-srcset="http://localhost:1313/svg/twitter.svg" data-src="http://localhost:1313/svg/twitter.svg" alt="footer-logo" />
+              </a>
+              <a class="footer_soz_item" href="https://www.facebook.com/kugadi">
+                <img class="footer_soz_item__img lazy" width="20" height="20" data-srcset="http://localhost:1313/svg/facebook.svg" data-src="http://localhost:1313/svg/facebook.svg" alt="footer-logo" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="footer_bottom_cont">
+          <p>&copy; 2024, Kugadi Inc. All rights reserved </p>
+          <a href="/privacy-policy/">Privacy Policy
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+ <picture>
+    <source class="lazy" data-srcset="http://localhost:1313/img/webp/footer.webp" type="image/webp">
+    <source class="lazy"  data-srcset="http://localhost:1313/img/footer.jpg" type="image/png">
+    <img class="general_img lazy" width="1440" height="316" data-src="http://localhost:1313/img/footer.jpg" alt="bg">
+  </picture>
+</footer>
+
+
+
+
+<script>
+  var lazyImages = [].slice.call(document.querySelectorAll(".lazy"));
+ if ("IntersectionObserver" in window) {
+     let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+       entries.forEach(function(entry) {
+           if (entry.isIntersecting) {
+             let lazyImage = entry.target;
+             if(lazyImage.dataset.src !== undefined){
+              lazyImage.src = lazyImage.dataset.src;
+             }
+             if(lazyImage.dataset.srcset !== undefined){
+              lazyImage.srcset = lazyImage.dataset.srcset;
+             }
+             lazyImage.classList.remove("lazy");
+             lazyImageObserver.unobserve(lazyImage);
+           }
+       });
+     });
+
+     lazyImages.forEach(function(lazyImage) {
+         lazyImageObserver.observe(lazyImage);
+     });
+   } else {
+       console.log('img false')
+   }
+
+
+  function loadCSS(hf) {
+          let ms = document.createElement("link");
+          ms.rel = "stylesheet";
+          ms.href = hf;
+          document.getElementsByTagName("head")[0].appendChild(ms);
+  }
+  loadCSS("http:\/\/localhost:1313\/sass\/main.css");
+</script>
+<script>
+  var scr = {
+      "scripts": [
+           {"src": "http:\/\/localhost:1313\/js\/jquery-3.3.1.min.js", "async": false},
+           {"src": "http:\/\/localhost:1313\/js\/common.js ", "async": false}
+      ]
+  };
+  !function (t, n, r) {
+      "use strict";
+      var c = function (t) {
+          if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;
+          for (var r = 0; r < t.length; r++) {
+              var c = n.createElement("script"), e = t[r];
+              c.src = e.src, c.async = e.async, n.body.appendChild(c)
+          }
+          return !0
+      };
+      t.addEventListener ? t.addEventListener("load", function () {
+          c(r.scripts);
+      }, !1) : t.attachEvent ? t.attachEvent("onload", function () {
+          c(r.scripts)
+      }) : t.onload = function () {
+          c(r.scripts)
+      }
+  }(window, document, scr);
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="true"></script>
+<script>
+window.cookieconsent.initialise({
+"palette": {
+ "popup": {
+   "background": "#237afc"
+ },
+ "button": {
+   "background": "#fff",
+   "text": "#237afc"
+ }
+},
+"position": "top",
+"static": true
+});
+</script>
+
+  </body>
+</html>

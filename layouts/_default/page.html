@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+  {{ partial "head.html" . }}
+  <body>
+  {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+  {{ if eq .Page  (.Site.GetPage "about") }}
+    {{  partial "pages/about.html" . }}
+  {{ else if eq .Page  (.Site.GetPage "faq") }}
+    {{  partial "pages/faq.html" . }}
+  {{ else if eq .Page  (.Site.GetPage "request-demo") }}
+    {{  partial "pages/request-demo.html" . }}
+  {{ else if eq .Page  (.Site.GetPage "request-cancel") }}
+    {{  partial "pages/request-cancel.html" . }}
+  {{ else if eq .Page  (.Site.GetPage "privacy-policy") }}
+    {{  partial "pages/privacy-policy.html" . }}
+  {{ else if eq .Page  (.Site.GetPage "mobile-privacy-policy") }}
+    {{  partial "pages/mobile-privacy-policy.html" . }}
+  {{ else }}
+  {{end}}
+
+  {{ block "page" . }}
+  {{ end }}
+  {{ partial "footer.html" . }}
+  </body>
+</html>
