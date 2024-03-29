@@ -1,0 +1,111 @@
+.teaser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 525px;
+  // background-color: $background-gray2;
+  padding: 8em 0;
+  box-sizing: border-box;
+  &.mobail-height{
+    @include sm{
+      min-height: 242px;
+      padding: 50px 0 15px;
+    }
+    .general_paragraph{
+      @include sm{
+        margin: 0 0 0px;
+      }
+    }
+  }
+  &_cont {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include md{
+      flex-direction: column-reverse;
+    }
+    &_left{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      @include md{
+        align-items: center;
+        margin-top: 30px;
+      }
+      .title{
+        margin: 0 0 20px;
+        @include md{
+          text-align: center;
+        }
+      }
+      p{
+        @include md{
+          text-align: center;
+        }
+      }
+      .general_paragraph{
+        margin: 0 0 40px;
+        &.obv{
+          width: 100%;
+          max-width: 368px;
+        }
+      }
+    }
+    &_right{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.mobail-none{
+        @include md{
+          display: none;
+        }
+      }
+      img{
+        max-width: 100%;
+      }
+    }
+  }
+  &_cont_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .title{
+      text-align: center;
+      margin: 0 auto 30px;
+    }
+    .general_paragraph{
+      text-align: center;
+      margin: 0 auto 20px;
+      width: 100%;
+      max-width: 590px;
+    }
+  }
+}
+
+.img-try{
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+  transform: translate(0, 50%);
+  z-index: 5;
+}
+
+.general_img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.features{
+  padding: 55px 0 25px!important;
+}

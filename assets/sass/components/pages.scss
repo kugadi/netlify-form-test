@@ -1,0 +1,236 @@
+.about_cont{
+   position: relative;
+   z-index: 9;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin: 70px auto 0;
+   width: 100%;
+   max-width: 785px;
+   @include xsl{
+      flex-direction: column;
+    }
+   &_img{
+     width: 100px;
+     height: 100px;
+     object-fit: contain;
+     margin-right: 35px;
+     @include xsl{
+      margin-bottom: 50px;
+      }
+   }
+   &_column{
+     display: flex;
+     flex-direction: column;
+      p{
+        line-height: 24px;
+      }
+      .comment_cont{
+        max-width: 100%; 
+        &_items{
+          max-width: 560px;
+        }
+      }
+      .comment_paragraph{
+        font-family: $font-ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 24px; 
+        color: $color-black3;
+        margin: 50px 0 20px;
+      }
+   }
+}
+
+.teaser3{
+  min-height: 300px;
+  padding: 180px 0 80px;
+}
+
+.faq_cont{
+  position: relative;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  width: 100%!important;
+  margin: 50px 0 40px;
+}
+.faq_item{
+  background: #FFFFFF;
+  box-shadow: 0px 9px 12px rgba(118, 169, 213, 0.4);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 15px;
+  width: 100%;
+  &:last-child{
+    margin: 0 0 0;
+  }
+  &_content{
+    padding: 25px 30px;
+    box-sizing: border-box;
+    width: 100%!important;
+    border-top: 1px solid rgba(6, 74, 130, 0.2);
+    display: none;
+    @include xsl{
+        padding: 25px 20px;
+    }
+    .post_content{
+      p{
+        font-size: 17px; 
+        line-height: 24px;
+      }
+    }
+  }
+
+  &_img{
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 20px;
+    height: auto;
+    object-fit: contain;
+    transition: 0.3s all;
+    @include xsl{
+      right: 20px;
+    }
+  }
+  &_title{
+    padding: 25px 60px 30px 25px;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    font-family: $font-ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px; 
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em; 
+    color: $color-blue2;
+    margin: 0;
+    cursor: pointer;
+    @include xsl{
+      padding: 25px 50px 30px 20px;
+    }
+    &.active-header{
+      .faq_item_img{
+        transform: translate(0, -50%) rotate(180deg);
+      }
+    }
+  }
+  
+}
+
+.demo{
+  position: relative;
+  width: 100%;
+  .general_img{
+    object-fit: cover;
+    object-position: right;
+    height: auto;
+  }
+  h3{
+    position: relative;
+    z-index: 9; 
+    box-sizing: border-box;
+    font-family: $font-ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px; 
+    letter-spacing: 0.01em; 
+    color: #0F1F73;
+    margin: 60px 0 0;
+    @include sm{
+      margin: 30px 0 0;
+    }
+  }
+  &_cont{
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    @include sm{
+      flex-direction: column-reverse;
+    }
+    .green-button{
+      @include sm{
+        width: 100%;
+        padding: 20px 25px;
+      }
+    }
+  }
+  &-right{
+    width: 50%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    @include sm{
+      padding: 0 0;
+      width: 100%;
+      max-width: 550px;
+      margin: 10px auto 0;
+    }
+  }
+  // webp
+  &-left{
+    width: 50%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin: 30px 0 0;
+    @include sm{
+      padding: 0 0;
+      width: 100%;
+      max-width: 550px;
+      margin: 50px auto 0;
+    }
+    h2{
+      position: relative;
+      z-index: 9; 
+      box-sizing: border-box;
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px; 
+      letter-spacing: 0.01em; 
+      color: #0F1F73;
+      margin: 20px 0 20px;
+    }
+    ul{
+      margin: 0;
+      padding: 0 0 0 15px;
+    
+      li{
+        font-family: $font-ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 22px; 
+        letter-spacing: 0.01em; 
+        color: #545454;
+        margin: 0 0 10px;
+      }
+    }
+  }
+}
+.cc-grower{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999; 
+  max-height: initial;
+}
+.cc-window.cc-banner{
+  padding: 5px 15px;
+  background: linear-gradient(rgb(113, 170, 218) 0%, rgb(104, 158, 204) 26.96%, rgb(100, 153, 208) 61.76%, rgb(92, 142, 215) 85.47%);
+ 
+}
+.cc-btn{
+  padding: 0px 10px;
+}

@@ -1,0 +1,487 @@
+.work {
+  display: flex;
+  flex-direction: column; 
+  position: relative;
+  width: 100%; 
+  padding: 80px 0 0;
+  box-sizing: border-box; 
+  &_cont {
+    position: relative;
+    z-index: 9;
+  }
+}
+
+.work_title{
+  font-family: $font-ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 43px;
+  line-height: 49px;
+  display: flex;
+  align-items: center;
+  color: $color-white;
+  text-shadow: 0px 3px 4px rgba(75, 88, 202, 0.52);
+  margin: 0 0 20px;
+}
+
+.work_block{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  &_item{
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+    margin: 20px 10px 0;
+    background: $background-white;
+    border: 1px solid rgba(169, 169, 169, 0.31);
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 9px 12px rgba(118, 169, 213, 0.4);
+    overflow: hidden;
+    @include xsl {
+      margin: 20px auto 0;
+    }
+    &_top{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 0 10px;
+      box-sizing: border-box;
+    }
+    &_img{
+      max-width: 100%;
+      object-fit: contain;
+      position: relative;
+      z-index: 9;
+      &-abs{
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center bottom;
+      }
+    }
+    &_text{
+      display: flex;
+      flex-direction: column;
+      padding: 20px 30px 20px;
+      box-sizing: border-box;
+      @include sm {
+        padding: 20px 20px 20px;
+      }
+    }
+    h5{
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.01em;
+      color: $color-black2;
+      margin: 0 0 15px;
+    }
+    p{
+      margin: 0;
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 22px;  
+      letter-spacing: 0.01em; 
+      color: $color-black3;
+    }
+  
+  }
+}
+
+.work_about{
+  position: relative;
+  z-index: 9;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  &_item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+    @include sm {
+      flex-direction: column-reverse;
+    }
+  }
+  &_img-cont{
+    padding: 0 15px 0 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 50%;
+    @include sm {
+      padding: 0 0 0 0;
+      width: 100%;
+    }
+    img{
+      width: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      overflow: hidden;
+      @include sm {
+        margin-top: 30px;
+      }
+    }
+  }
+  &_text{
+    width: 50%;
+    padding: 0 0 0 15px;
+    box-sizing: border-box;
+    max-width: 100%;
+    @include sm {
+      padding: 0 0 0 0;
+      width: 100%;
+    }
+    h4{
+      margin: 0 0 30px;
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px; 
+      letter-spacing: 0.01em; 
+      color: $color-blue2;
+    }
+    p{
+      margin: 0 0 30px;
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 152.4%; 
+      letter-spacing: 0.01em; 
+      color: $color-black3;
+    }
+    p:last-child{
+        margin: 0 0 0;
+    }
+  }
+  &_item:nth-child(2n + 2){
+    flex-direction: row-reverse;
+    @include sm {
+      flex-direction: column-reverse;
+    }
+    .work_about_img-cont{
+      padding: 0 0 0 15px;
+      @include sm {
+        padding: 0 0 0 0;
+      }
+    }
+    .work_about_text{
+      padding: 0 15px 0 0;
+      @include sm {
+        padding: 0 0 0 0;
+      }
+    }
+  }
+  
+}
+ 
+
+.work_features{
+  position: relative;
+  z-index: 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  &_items{
+    width: 100%;
+    max-width: 570px;
+    margin: 20px 15px 0;
+    background: #FAFAFA;
+    border: 1px solid rgba(169, 169, 169, 0.71);
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 9px 12px rgba(118, 169, 213, 0.4);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    padding: 25px 20px 20px 20px;
+    @include sm {
+      margin: 20px auto 0;
+    }
+    @include xs {
+      flex-direction: column;
+    }
+    &_img{
+      position: relative;
+      z-index: 9;
+      width: 113px;
+      height: 113px;
+      object-fit: cover;
+      margin: 0 20px 0 30px;
+      @include xsl {
+        margin: 0 auto 20px;
+      }
+      &-abs{
+        width: 40%;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 2;
+        @include xsl {
+          width: auto;
+        }
+      }
+    }
+    p{
+      margin: 0 0 20px;
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 22px;
+      letter-spacing: 0.01em;
+      color: $color-black3;
+    }
+    p:last-child{
+      margin: 0 0 0;
+    }
+    h5{
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.01em;
+      color: $color-black2;
+      margin: 0 0 20px;
+    }
+    ul, ol{
+      margin: 0 0 20px 15px;
+      padding: 0;
+      li{
+        font-family: $font-ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: 0.01em;
+        color: $color-black3;
+        a{
+          font-family: $font-ubuntu;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 22px;
+          letter-spacing: 0.01em;
+          color: $color-blue;
+        }
+      }
+    }
+  }
+}
+
+.work_features_title{
+  position: relative;
+  z-index: 9;
+  font-family: $font-ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 40px; 
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em; 
+  color: $color-blue2;
+  margin: 75px 0 50px;
+}
+
+.contact{
+  position: relative;
+  margin: 110px 0 0;
+  &_cont{
+    position: relative;
+    z-index: 9; 
+    flex-direction: column;
+    h2{
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 40px; 
+      text-align: center;
+      letter-spacing: 0.01em; 
+      color: $color-blue2;
+      margin: 0 0 60px;
+    }
+  }
+}
+
+.my-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  .hidden{
+    display: none;
+  }
+  &_white{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    width: 100%;
+    box-shadow: 0px 9px 12px rgba(118, 169, 213, 0.4);
+    border-radius: 15px;
+    padding: 20px;
+    @include sm {
+      padding: 15px 20px;
+    }
+    input, textarea{
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      font-family: $font-ubuntu;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 152.4%; 
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.01em; 
+      color: $color-blue2; 
+      padding: 8px 15px;
+      background: #F0F6FA;
+      border-radius: 5px; 
+      border: none;
+      outline: none;
+      &::-webkit-input-placeholder {  
+        font-family: $font-ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 152.4%; 
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em; 
+        color: $color-blue2; 
+        opacity: 1;
+      }
+      
+      &:-ms-input-placeholder { 
+        font-family: $font-ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 152.4%; 
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em; 
+        color: $color-blue2; 
+        opacity: 1;
+      }
+      
+      &::placeholder {
+        font-family: $font-ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 152.4%; 
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em; 
+        color: $color-blue2; 
+        opacity: 1;
+      }
+    }
+    .textarea{
+      margin-bottom: 0;
+    }
+  }
+}
+.form_btn{
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%; 
+  max-width: 740px;
+}
+.green-button{
+  margin: 20px 0 0;
+  background: #FFFFFF;
+  border-radius: 70px;
+  border: none;
+  padding: 12px 25px;
+  box-sizing: border-box;
+  font-family: $font-ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px; 
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0px 9px 12px rgba(118, 169, 213, 0.4);
+  color: #2D6BC7;
+  transition: 0.3s all;
+  &:hover{
+    color: #FFFFFF;
+    background:  #2D6BC7;
+    cursor: pointer;
+  }
+}
+
+.desktop{
+  display: flex;
+  @include sm {
+    display: none;
+  }
+}
+.mobile{
+  display: none;
+  @include sm {
+    display: flex;
+  }
+}
+
+.teaser3{
+  .general-paragraph{
+    font-family: $font-ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 26px;
+    margin: 0;
+
+    text-align: center;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 3px 4px rgba(49, 62, 180, 0.46);
+  }
+}
+.content_cont_bottom{
+  h1{
+    text-align: center;
+  }
+}
+.privacy{
+  margin-bottom: 100px;
+  .content_cont{
+    margin-bottom: 50px;
+  }
+}
